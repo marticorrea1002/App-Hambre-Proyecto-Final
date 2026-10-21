@@ -1,0 +1,375 @@
+import '/flutter_flow/flutter_flow_theme.dart';
+import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
+import 'dart:ui';
+import '/index.dart';
+import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
+
+import 'p01_bienvenida_model.dart';
+export 'p01_bienvenida_model.dart';
+
+/// Create a mobile welcome screen for my existing FlutterFlow app called
+/// **Hambre**.
+///
+/// Page name: **P1Bienvenida**
+///
+/// IMPORTANT: Recreate page 1 of my reference PDF as accurately as possible.
+/// This is the first screen users see when opening the application.
+///
+/// Do not redesign the screen or add unnecessary elements. All visible text
+/// must be in Spanish (Argentina).
+///
+/// ### 1. GENERAL DESIGN
+///
+/// - Mobile-first design.
+/// - Full-screen dark forest green background: #205B3B.
+/// - Typography: Inter.
+/// - Accent color: lime green #C9FA57.
+/// - White text for secondary elements.
+/// - Minimal, modern and clean interface.
+/// - Respect the original layout and proportions.
+/// - Use a SafeArea and responsive Column.
+///
+/// ### 2. LOGO
+///
+/// In the upper-middle area, display the Hambre logo.
+///
+/// The logo is a minimalist food bowl with small colorful ingredients above
+/// it.
+///
+/// If the original logo asset is already available, use it. Otherwise, create
+/// a simple visual placeholder that can later be replaced with my logo.
+///
+/// Do not use random stock photographs or unrelated images.
+///
+/// ### 3. APP NAME
+///
+/// Below the logo, display:
+///
+/// **Hambre**
+///
+/// Style:
+/// - Large bold typography.
+/// - Lime green color #C9FA57.
+/// - Left aligned.
+/// - Font size approximately 40px.
+///
+/// ### 4. SLOGAN
+///
+/// Below the app name, display:
+///
+/// ¿Tenés hambre?
+///
+/// **Sí, tengo la app.**
+///
+/// Style:
+/// - White text.
+/// - First line regular.
+/// - Second line bold.
+/// - Left aligned.
+/// - Font size approximately 16px.
+///
+/// ### 5. BUTTONS
+///
+/// Place two full-width buttons toward the bottom of the screen.
+///
+/// **Button 1: Ingresar**
+/// - Background: #C9FA57.
+/// - Text color: #205B3B.
+/// - Bold text.
+/// - Rounded corners: 14px.
+/// - Height: 52px.
+///
+/// **Button 2: Crear cuenta**
+/// - Transparent background.
+/// - White border, 1.5px.
+/// - White bold text.
+/// - Rounded corners: 14px.
+/// - Height: 52px.
+///
+/// Place 10px spacing between buttons.
+///
+/// ### 6. BOTTOM TEXT
+///
+/// Below the buttons, add a small centered caption:
+///
+/// "Ingresá para cocinar y buscar productos"
+///
+/// Use a smaller font size, approximately 12px, with slightly transparent
+/// white text.
+///
+/// ### 7. NAVIGATION
+///
+/// Configure these navigation intentions:
+///
+/// - "Ingresar" → P2Acceso.
+/// - "Crear cuenta" → Registration screen, if it exists
+class P01BienvenidaWidget extends StatefulWidget {
+  const P01BienvenidaWidget({super.key});
+
+  static String routeName = 'P01Bienvenida';
+  static String routePath = '/p01Bienvenida';
+
+  @override
+  State<P01BienvenidaWidget> createState() => _P01BienvenidaWidgetState();
+}
+
+class _P01BienvenidaWidgetState extends State<P01BienvenidaWidget> {
+  late P01BienvenidaModel _model;
+
+  final scaffoldKey = GlobalKey<ScaffoldState>();
+
+  @override
+  void initState() {
+    super.initState();
+    _model = createModel(context, () => P01BienvenidaModel());
+  }
+
+  @override
+  void dispose() {
+    _model.dispose();
+
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: () {
+        FocusScope.of(context).unfocus();
+        FocusManager.instance.primaryFocus?.unfocus();
+      },
+      child: Scaffold(
+        key: scaffoldKey,
+        backgroundColor: Color(0xFF205B3B),
+        body: Padding(
+          padding: EdgeInsetsDirectional.fromSTEB(32, 40, 32, 40),
+          child: Column(
+            mainAxisSize: MainAxisSize.max,
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Spacer(flex: 2),
+              Stack(
+                children: [
+                  Align(
+                    alignment: AlignmentDirectional(-1.59, 0),
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(6),
+                      child: Image.asset(
+                        'assets/images/e5a954a5-5d9f-412b-9acf-4778a805c7fd.png',
+                        width: 197.3,
+                        height: 183.8,
+                        fit: BoxFit.cover,
+                        alignment: Alignment(-1, -1),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              Column(
+                mainAxisSize: MainAxisSize.min,
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    'Hambre',
+                    style: FlutterFlowTheme.of(context).bodyMedium.override(
+                          font: GoogleFonts.inter(
+                            fontWeight: FontWeight.w900,
+                            fontStyle: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .fontStyle,
+                          ),
+                          color: Color(0xFFC9FA57),
+                          fontSize: 40,
+                          letterSpacing: 0.0,
+                          fontWeight: FontWeight.w900,
+                          fontStyle:
+                              FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                          lineHeight: 1.4,
+                        ),
+                  ),
+                  Column(
+                    mainAxisSize: MainAxisSize.min,
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        '¿Tenés hambre?',
+                        style: FlutterFlowTheme.of(context).bodyMedium.override(
+                              font: GoogleFonts.inter(
+                                fontWeight: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .fontWeight,
+                                fontStyle: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .fontStyle,
+                              ),
+                              color: Colors.white,
+                              fontSize: 16,
+                              letterSpacing: 0.0,
+                              fontWeight: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .fontWeight,
+                              fontStyle: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .fontStyle,
+                              lineHeight: 1.4,
+                            ),
+                      ),
+                      Text(
+                        'Sí, tengo la app.',
+                        style: FlutterFlowTheme.of(context).bodyMedium.override(
+                              font: GoogleFonts.inter(
+                                fontWeight: FontWeight.bold,
+                                fontStyle: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .fontStyle,
+                              ),
+                              color: Colors.white,
+                              fontSize: 16,
+                              letterSpacing: 0.0,
+                              fontWeight: FontWeight.bold,
+                              fontStyle: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .fontStyle,
+                              lineHeight: 1.4,
+                            ),
+                      ),
+                    ].divide(SizedBox(height: 4)),
+                  ),
+                ].divide(SizedBox(height: 16)),
+              ),
+              Spacer(flex: 3),
+              Column(
+                mainAxisSize: MainAxisSize.min,
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  InkWell(
+                    splashColor: Colors.transparent,
+                    focusColor: Colors.transparent,
+                    hoverColor: Colors.transparent,
+                    highlightColor: Colors.transparent,
+                    onTap: () async {
+                      context.pushNamed(P02InicioWidget.routeName);
+                    },
+                    child: Container(
+                      height: 52,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(14),
+                        shape: BoxShape.rectangle,
+                        border: Border.all(
+                          color: Colors.white,
+                          width: 1.5,
+                        ),
+                      ),
+                      alignment: AlignmentDirectional(0, 0),
+                      child: Text(
+                        'Iniciar Sesión',
+                        style: FlutterFlowTheme.of(context).bodyMedium.override(
+                              font: GoogleFonts.inter(
+                                fontWeight: FontWeight.bold,
+                                fontStyle: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .fontStyle,
+                              ),
+                              color: Colors.white,
+                              letterSpacing: 0.0,
+                              fontWeight: FontWeight.bold,
+                              fontStyle: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .fontStyle,
+                              lineHeight: 1.4,
+                            ),
+                      ),
+                    ),
+                  ),
+                  InkWell(
+                    splashColor: Colors.transparent,
+                    focusColor: Colors.transparent,
+                    hoverColor: Colors.transparent,
+                    highlightColor: Colors.transparent,
+                    onTap: () async {
+                      context.pushNamed(P02RegistroWidget.routeName);
+                    },
+                    child: Container(
+                      height: 52,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(14),
+                        shape: BoxShape.rectangle,
+                        border: Border.all(
+                          color: Colors.white,
+                          width: 1.5,
+                        ),
+                      ),
+                      alignment: AlignmentDirectional(0, 0),
+                      child: Text(
+                        'Crear cuenta',
+                        style: FlutterFlowTheme.of(context).bodyMedium.override(
+                              font: GoogleFonts.inter(
+                                fontWeight: FontWeight.bold,
+                                fontStyle: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .fontStyle,
+                              ),
+                              color: Colors.white,
+                              letterSpacing: 0.0,
+                              fontWeight: FontWeight.bold,
+                              fontStyle: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .fontStyle,
+                              lineHeight: 1.4,
+                            ),
+                      ),
+                    ),
+                  ),
+                  Container(
+                    child: Padding(
+                      padding: EdgeInsetsDirectional.fromSTEB(8, 0, 8, 0),
+                      child: Container(
+                        child: Container(
+                          alignment: AlignmentDirectional(0, 0),
+                          child: Text(
+                            'Ingresá para cocinar y buscar productos',
+                            textAlign: TextAlign.center,
+                            style: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .override(
+                                  font: GoogleFonts.inter(
+                                    fontWeight: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .fontWeight,
+                                    fontStyle: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .fontStyle,
+                                  ),
+                                  color: Color(0xB3FFFFFF),
+                                  fontSize: 12,
+                                  letterSpacing: 0.0,
+                                  fontWeight: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .fontWeight,
+                                  fontStyle: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .fontStyle,
+                                  lineHeight: 1.4,
+                                ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                ].divide(SizedBox(height: 10)),
+              ),
+              Spacer(),
+            ].divide(SizedBox(height: 24)),
+          ),
+        ),
+      ),
+    );
+  }
+}
